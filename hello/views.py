@@ -11,7 +11,7 @@ def say_hello(request):
         <body>
             <h1>Hello World!</h1>
             <h2>Server Generated Page</h2>
-            <p>The current time is { now }.</p>
+            <p>The current time is { now.isoformat(sep=' ', timespec='seconds') }.</p>
         </body>
     </html>
     '''
@@ -19,8 +19,10 @@ def say_hello(request):
 
 
 def helloworld(request):
-    return render(request, 'helloworld.html')
+    now = datetime.now()
+    return render(request, 'helloworld.html', {'curtime': now.isoformat(sep=' ', timespec='seconds')})
  
 
 def index(request):
-    return render(request, 'main.html')
+    now = datetime.now()
+    return render(request, 'main.html', {'curtime': now.isoformat(sep=' ', timespec='seconds')})
