@@ -26,3 +26,4 @@ def helloworld(request):
 def index(request):
     now = datetime.now()
     return render(request, 'main.html', {'curtime': now.isoformat(sep=' ', timespec='seconds')})
+
