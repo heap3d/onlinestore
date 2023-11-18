@@ -1,7 +1,6 @@
 from datetime import datetime
 from django.shortcuts import render
 from django.http import HttpResponse
-from onlinestore.settings import STATIC_DIR
 
 
 # Create your views here.
@@ -26,6 +25,5 @@ def helloworld(request):
 
 def index(request):
     now = datetime.now()
-    print(STATIC_DIR)
-    return render(request, 'main.html', {'curtime': now.isoformat(sep=' ', timespec='seconds'), 'staticdir': STATIC_DIR})
+    return render(request, 'main.html', {'curtime': now.isoformat(sep=' ', timespec='seconds')})
 
